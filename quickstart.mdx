@@ -26,9 +26,18 @@ If you prefer to set it up yourself:
 
     <Tabs>
       <Tab title="Claude Code">
-        ```bash
-        claude mcp add vibe https://www.slashvibe.dev/mcp-server/index.json
+        Add to `~/.claude.json`:
+        ```json
+        {
+          "mcpServers": {
+            "vibe": {
+              "command": "npx",
+              "args": ["-y", "slashvibe-mcp"]
+            }
+          }
+        }
         ```
+        Then restart Claude Code.
       </Tab>
       <Tab title="Cursor">
         Add to your Cursor MCP settings (see [Cursor setup guide](/guides/ide-support)):
@@ -36,16 +45,24 @@ If you prefer to set it up yourself:
         {
           "mcpServers": {
             "vibe": {
-              "url": "https://www.slashvibe.dev/mcp-server/index.json"
+              "command": "npx",
+              "args": ["-y", "slashvibe-mcp"]
             }
           }
         }
         ```
       </Tab>
       <Tab title="Other MCP IDEs">
-        Any IDE that supports MCP can connect to /vibe. Point your MCP config to:
-        ```
-        https://www.slashvibe.dev/mcp-server/index.json
+        Any MCP-compatible IDE can run /vibe. Add to your MCP config:
+        ```json
+        {
+          "mcpServers": {
+            "vibe": {
+              "command": "npx",
+              "args": ["-y", "slashvibe-mcp"]
+            }
+          }
+        }
         ```
       </Tab>
     </Tabs>

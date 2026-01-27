@@ -1,79 +1,153 @@
 ---
 title: "MCP Tools Reference"
-description: "All /vibe tools available to MCP clients"
+description: "All 68 /vibe tools available to MCP clients"
 ---
 
-## Available tools
+## Installation
 
-When you connect /vibe to an MCP client (Claude Code, Cursor, etc.), these tools become available to your AI:
+Add to your MCP config (`~/.claude.json` or IDE equivalent):
 
-### vibe_who
-
-Check who's online.
-
-```
-Input: none
-Output: List of online users with handles and status
-```
-
-### vibe_dm
-
-Send a direct message.
-
-```
-Input: { to: string, message: string }
-Output: Message confirmation with delivery status
+```json
+{
+  "mcpServers": {
+    "vibe": {
+      "command": "npx",
+      "args": ["-y", "slashvibe-mcp"]
+    }
+  }
+}
 ```
 
-### vibe_inbox
+Or tell Claude: `"go to slashvibe.dev and install /vibe"`
 
-Check your messages.
+## Getting started flow
+
+<Steps>
+  <Step title="Authenticate">
+    Run `vibe init` to open GitHub OAuth (30 seconds)
+  </Step>
+  <Step title="Discover presence">
+    Use `vibe who` to see online builders
+  </Step>
+  <Step title="Check messages">
+    Use `vibe inbox` for unread DMs
+  </Step>
+  <Step title="Send first message">
+    Try `vibe dm @seth hey, just set up /vibe!`
+  </Step>
+</Steps>
+
+Or simply tell Claude: **"let's vibe"**
+
+---
+
+## Tool categories
+
+/vibe exposes **68 tools** across 7 categories. All tools include safety annotations (`readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`) for safe agent usage.
+
+### Core Messaging & Presence (11 tools)
+
+| Tool | Purpose |
+|------|---------|
+| `vibe_start` | Entry point — authenticates, shows who's online, checks inbox |
+| `vibe_init` | GitHub OAuth identity setup |
+| `vibe_who` | Display online developers and their current work |
+| `vibe_dm` | Send direct messages |
+| `vibe_inbox` | Retrieve unread messages |
+| `vibe_open` | Begin conversation thread |
+| `vibe_ping` | Quick notification to someone |
+| `vibe_react` | React to messages |
+| `vibe_status` | Set mood or current project |
+| `vibe_away` / `vibe_back` | Availability toggles |
+| `vibe_bye` | End session |
+
+### Discovery (5 tools)
+
+| Tool | Purpose |
+|------|---------|
+| `vibe_discover` | Find builders by interest or skill |
+| `vibe_suggest_tags` | Get tag suggestions for your profile |
+| `vibe_skills_exchange` | Find skill-swap partners |
+| `vibe_workshop_buddy` | Find someone to pair with |
+| `vibe_invite` | Generate an invite code |
+
+### Creative & Sharing (6 tools)
+
+| Tool | Purpose |
+|------|---------|
+| `vibe_ship` | Share something you've built |
+| `vibe_idea` | Post an idea for feedback |
+| `vibe_request` | Request help or feedback |
+| `vibe_feed` | Browse recent activity |
+| `vibe_create_artifact` | Create a shareable artifact |
+| `vibe_view_artifact` | View someone's artifact |
+
+### Memory Persistence (4 tools)
+
+| Tool | Purpose |
+|------|---------|
+| `vibe_remember` | Store a note for future sessions |
+| `vibe_recall` | Retrieve stored notes |
+| `vibe_forget` | Delete a stored note |
+| `vibe_handoff` | Pass context between sessions |
+
+### Games (6 tools)
+
+| Tool | Purpose |
+|------|---------|
+| `vibe_game` | Start a multiplayer game |
+| `vibe_solo_game` | Play a single-player game |
+| `vibe_tictactoe` | Play tic-tac-toe with another builder |
+| `vibe_crossword` | Collaborative crossword puzzles |
+| `vibe_drawing` | ASCII drawing game |
+| `vibe_party_game` | Group party games |
+
+### Cross-Platform Bridges (4 tools)
+
+| Tool | Purpose |
+|------|---------|
+| `vibe_x_mentions` | Check X/Twitter mentions |
+| `vibe_x_reply` | Reply to X/Twitter mentions |
+| `vibe_social_inbox` | Unified social inbox |
+| `vibe_social_post` | Post to social platforms |
+
+### Diagnostics (5 tools)
+
+| Tool | Purpose |
+|------|---------|
+| `vibe_doctor` | Comprehensive diagnostics check |
+| `vibe_test` | Run connectivity tests |
+| `vibe_help` | Get help with /vibe commands |
+| `vibe_update` | Check for MCP server updates |
+| `vibe_settings` | Configure /vibe preferences |
+
+---
+
+## Architecture
 
 ```
-Input: { handle: string }
-Output: List of recent messages with read status
+Claude Code ↔ /vibe MCP (stdio) ↔ slashvibe.dev API ↔ Other users
+                  ↓
+         Local SQLite persistence
+         ~/.vibecodings/sessions.db
 ```
 
-### vibe_mint
+The MCP server communicates via stdio with your IDE and makes HTTP calls to the /vibe API. Local SQLite stores session data, messages cache, and memory notes. Messages sync locally first, then to server (optimistic send model).
 
-Mint content to the /vibe board.
+## Troubleshooting
 
-```
-Input: { content: string, handle: string }
-Output: Mint confirmation
-```
+- **Restart your IDE** after MCP config changes
+- **Auth uses `localhost:9876`** — ensure the port is available
+- **Run `vibe doctor`** for comprehensive diagnostics
+- **Messages sync locally first**, then to server — brief delays are normal
 
-### vibe_health
+## Safety annotations
 
-Check system health.
+All 68 tools include MCP safety annotations:
 
-```
-Input: none
-Output: System status, latency, active user count
-```
+- `readOnlyHint` — tools that only read data (e.g., `vibe_who`, `vibe_inbox`)
+- `destructiveHint` — tools that delete or modify data (e.g., `vibe_forget`)
+- `idempotentHint` — tools safe to retry (e.g., `vibe_status`)
+- `openWorldHint` — tools that interact with external services (e.g., `vibe_x_reply`)
 
-### vibe_leaderboard
-
-View the community leaderboard.
-
-```
-Input: none
-Output: Top users by Vibe Score
-```
-
-### vibe_streak
-
-Check your activity streak.
-
-```
-Input: { handle: string }
-Output: Current streak, longest streak, streak history
-```
-
-## MCP server URL
-
-```
-https://www.slashvibe.dev/mcp-server/index.json
-```
-
-Point any MCP client to this URL to enable /vibe tools.
+These annotations help AI clients make safe decisions about when to use tools automatically vs. when to ask for confirmation.
