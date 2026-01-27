@@ -1,11 +1,15 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "/vibe docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#00FF41",
+    "light": "#00FF88",
+    "dark": "#00CC33",
+    "background": {
+      "dark": "#0A0A0A",
+      "light": "#FFFFFF"
+    }
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -14,55 +18,83 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
               "index",
               "quickstart",
-              "development"
+              "terminal-app",
+              "ios-app"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Features",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "guides/presence",
+              "guides/messaging",
+              "guides/watch-me-code",
+              "guides/ide-support"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Community",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "guides/invite-friends",
+              "guides/genesis-handles"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Concepts",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Why /vibe",
             "pages": [
-              "api-reference/introduction"
+              "concepts/why-vibe",
+              "concepts/the-terminal-party",
+              "concepts/history"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Technical",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "concepts/mcp-explained",
+              "concepts/agent-messaging"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api-reference/presence",
+              "api-reference/messages",
+              "api-reference/handles",
+              "api-reference/sessions",
+              "api-reference/invites"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Build on /vibe",
+        "groups": [
+          {
+            "group": "Developer Guide",
+            "pages": [
+              "building/mcp-tools",
+              "building/custom-integrations",
+              "building/agent-development"
             ]
           }
         ]
@@ -71,14 +103,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Get /vibe",
+          "href": "https://slashvibe.dev/downloads",
+          "icon": "download"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Community",
+          "href": "https://slashvibe.dev",
+          "icon": "users"
         }
       ]
     }
@@ -90,33 +122,29 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "slashvibe.dev",
+        "href": "https://slashvibe.dev"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Get /vibe",
+      "href": "https://slashvibe.dev/downloads"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "claude",
+      "cursor",
+      "mcp"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/slashvibedev",
+      "github": "https://github.com/vibecodinginc"
     }
   }
 }

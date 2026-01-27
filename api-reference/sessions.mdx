@@ -1,0 +1,42 @@
+---
+title: "Sessions"
+description: "Watch Me Code sessions and recordings"
+---
+
+## Start a live session
+
+```bash
+POST /api/sessions/live
+Authorization: Bearer TOKEN
+
+{
+  "handle": "yourhandle",
+  "title": "Debugging auth flow"
+}
+```
+
+Starts a live Watch Me Code session. Others can watch in real-time.
+
+## Sync session data
+
+```bash
+POST /api/sessions/sync
+Authorization: Bearer TOKEN
+
+{
+  "handle": "yourhandle",
+  "duration": 3600,
+  "outcome": "shipped",
+  "tech_stack": ["typescript", "react"]
+}
+```
+
+Sessions auto-record by default. Sync sends session metadata to the platform.
+
+## Get sessions
+
+```bash
+GET /api/sessions?handle=yourhandle
+```
+
+Returns your session history.

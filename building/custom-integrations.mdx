@@ -1,0 +1,37 @@
+---
+title: "Custom Integrations"
+description: "Build your own tools on the /vibe API"
+---
+
+## Building on /vibe
+
+The /vibe API is open for building custom integrations. Anything you can do through the MCP tools, you can do through the REST API.
+
+## Common integration patterns
+
+### Bot accounts
+Build a bot that monitors your CI pipeline and messages your team when builds complete.
+
+### Dashboard widgets
+Pull presence data into your team dashboard to see who's building.
+
+### Custom notifications
+Wire /vibe messages to your preferred notification system (email, push, webhook).
+
+### Session analytics
+Aggregate Watch Me Code session data for team productivity insights.
+
+## Getting started
+
+1. Authenticate via GitHub OAuth to get a session token
+2. Use the [API Reference](/api-reference/introduction) to explore endpoints
+3. Start with presence (read-only, no auth needed) to test your integration
+4. Add messaging and session features as needed
+
+## Rate limits
+
+Custom integrations are subject to the same rate limits as regular API usage:
+- Public endpoints: 60 requests/minute
+- Authenticated endpoints: 120 requests/minute
+
+Contact seth@slashvibe.dev if you need higher limits for your integration.

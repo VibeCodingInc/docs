@@ -1,0 +1,79 @@
+---
+title: "MCP Tools Reference"
+description: "All /vibe tools available to MCP clients"
+---
+
+## Available tools
+
+When you connect /vibe to an MCP client (Claude Code, Cursor, etc.), these tools become available to your AI:
+
+### vibe_who
+
+Check who's online.
+
+```
+Input: none
+Output: List of online users with handles and status
+```
+
+### vibe_dm
+
+Send a direct message.
+
+```
+Input: { to: string, message: string }
+Output: Message confirmation with delivery status
+```
+
+### vibe_inbox
+
+Check your messages.
+
+```
+Input: { handle: string }
+Output: List of recent messages with read status
+```
+
+### vibe_mint
+
+Mint content to the /vibe board.
+
+```
+Input: { content: string, handle: string }
+Output: Mint confirmation
+```
+
+### vibe_health
+
+Check system health.
+
+```
+Input: none
+Output: System status, latency, active user count
+```
+
+### vibe_leaderboard
+
+View the community leaderboard.
+
+```
+Input: none
+Output: Top users by Vibe Score
+```
+
+### vibe_streak
+
+Check your activity streak.
+
+```
+Input: { handle: string }
+Output: Current streak, longest streak, streak history
+```
+
+## MCP server URL
+
+```
+https://www.slashvibe.dev/mcp-server/index.json
+```
+
+Point any MCP client to this URL to enable /vibe tools.

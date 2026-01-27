@@ -1,0 +1,55 @@
+---
+title: "Messages"
+description: "Send DMs and check delivery receipts"
+---
+
+## Send a message
+
+```bash
+POST /api/messages
+Authorization: Bearer TOKEN
+
+{
+  "to": "stan",
+  "text": "ship it?"
+}
+```
+
+### Response
+
+```json
+{
+  "success": true,
+  "message": {
+    "id": "msg_abc123",
+    "from": "seth",
+    "to": "stan",
+    "text": "ship it?",
+    "status": "sent",
+    "timestamp": "2026-01-28T10:35:00Z"
+  }
+}
+```
+
+## Get inbox
+
+```bash
+GET /api/messages?handle=yourhandle
+Authorization: Bearer TOKEN
+```
+
+Returns your messages, most recent first.
+
+## Message status
+
+Messages progress through three states:
+
+| Status | Meaning |
+|--------|---------|
+| `sent` | Server received the message |
+| `delivered` | Recipient's client fetched it |
+| `read` | Recipient opened the conversation |
+
+## Read receipts
+
+When you fetch messages, read receipts are automatically sent for unread messages. The sender sees their message status update from `delivered` to `read`.

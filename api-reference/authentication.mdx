@@ -1,0 +1,43 @@
+---
+title: "Authentication"
+description: "GitHub OAuth flow for /vibe API access"
+---
+
+## Overview
+
+/vibe uses GitHub OAuth for authentication. This aligns with our developer-first identity — your GitHub profile is your proof of work.
+
+## OAuth flow
+
+<Steps>
+  <Step title="Initiate auth">
+    Redirect the user to:
+    ```
+    GET https://www.slashvibe.dev/api/auth/github
+    ```
+    Optional query params: `handle`, `redirect_uri`, `utm_source`, `utm_medium`, `utm_campaign`
+  </Step>
+  <Step title="GitHub authorization">
+    User authorizes the /vibe OAuth app on GitHub. Scopes requested: `read:user`, `user:email`.
+  </Step>
+  <Step title="Callback">
+    GitHub redirects to the callback URL with an authorization code. The server exchanges this for an access token and creates a session.
+  </Step>
+  <Step title="Session token">
+    The callback returns a session token. Use this for authenticated API calls:
+    ```bash
+    curl -H "Authorization: Bearer SESSION_TOKEN" \
+      https://www.slashvibe.dev/api/messages
+    ```
+  </Step>
+</Steps>
+
+## Handle assignment
+
+- If no handle is specified, your GitHub username becomes your /vibe handle
+- Handles are lowercase, alphanumeric, and unique
+- Genesis handles (first 100) are permanent
+
+## Token lifetime
+
+Session tokens expire after 30 days of inactivity. Active sessions are refreshed automatically.

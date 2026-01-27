@@ -1,33 +1,49 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "API Reference"
+description: "Build on /vibe — presence, messaging, sessions, handles"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Base URL
 
-## Welcome
+```
+https://www.slashvibe.dev/api
+```
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+All endpoints are served over HTTPS.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+Most read endpoints are public. Write endpoints require a session token obtained through GitHub OAuth.
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```bash
+# Public (no auth needed)
+curl https://www.slashvibe.dev/api/presence
+
+# Authenticated
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://www.slashvibe.dev/api/messages
 ```
+
+See [Authentication](/api-reference/authentication) for the full OAuth flow.
+
+## Core endpoints
+
+| Resource | Description |
+|----------|-------------|
+| [Presence](/api-reference/presence) | Who's online, heartbeats, visibility |
+| [Messages](/api-reference/messages) | Send DMs, read inbox, delivery receipts |
+| [Handles](/api-reference/handles) | Claim, check availability, reserve |
+| [Sessions](/api-reference/sessions) | Watch Me Code, recordings, go live |
+| [Invites](/api-reference/invites) | Generate and redeem invite codes |
+
+## Rate limits
+
+- Public endpoints: 60 requests/minute
+- Authenticated endpoints: 120 requests/minute
+- Presence heartbeats: 1 per 5 seconds
+
+## MCP tools
+
+If you're using /vibe through an MCP client (Claude Code, Cursor), you don't need to call the API directly. The MCP server wraps these endpoints into tools your AI can use.
+
+See [MCP Tools Reference](/building/mcp-tools) for the tool interface.

@@ -1,0 +1,57 @@
+---
+title: "Presence"
+description: "Who's online and what they're building"
+---
+
+## Get online users
+
+```bash
+GET /api/presence
+```
+
+Returns a list of currently online users with their status.
+
+### Response
+
+```json
+{
+  "success": true,
+  "online": [
+    {
+      "handle": "seth",
+      "status": "building",
+      "since": "2026-01-28T10:30:00Z"
+    }
+  ],
+  "count": 14
+}
+```
+
+## Send heartbeat
+
+```bash
+POST /api/presence
+Authorization: Bearer TOKEN
+
+{
+  "handle": "yourhandle",
+  "status": "building",
+  "task": "debugging auth flow"
+}
+```
+
+Heartbeats keep your presence alive. Send one every 30 seconds. If no heartbeat is received for 2 minutes, you go offline.
+
+## Set visibility
+
+```bash
+POST /api/presence/visibility
+Authorization: Bearer TOKEN
+
+{
+  "handle": "yourhandle",
+  "visible": false
+}
+```
+
+Set `visible: false` to go invisible. You're still connected but hidden from the presence list.

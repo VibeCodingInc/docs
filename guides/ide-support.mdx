@@ -1,0 +1,67 @@
+---
+title: "IDE Support"
+description: "Claude Code, Cursor, and any MCP-compatible IDE"
+---
+
+## Supported IDEs
+
+/vibe works in any IDE that supports the Model Context Protocol (MCP):
+
+| IDE | Status | Setup |
+|-----|--------|-------|
+| **Claude Code** | Full support | `claude mcp add vibe` |
+| **Cursor** | Full support | Add to MCP settings |
+| **Windsurf** | Compatible | MCP config |
+| **Any MCP IDE** | Compatible | Point to MCP server URL |
+
+## Claude Code setup
+
+```bash
+claude mcp add vibe https://www.slashvibe.dev/mcp-server/index.json
+```
+
+That's it. Claude now has access to /vibe tools — presence, messaging, sessions.
+
+## Cursor setup
+
+1. Open Cursor Settings
+2. Navigate to MCP configuration
+3. Add the /vibe server:
+
+```json
+{
+  "mcpServers": {
+    "vibe": {
+      "url": "https://www.slashvibe.dev/mcp-server/index.json"
+    }
+  }
+}
+```
+
+4. Restart Cursor. Ask your AI "who's online on /vibe?" to verify.
+
+For detailed Cursor setup, see the [README in the vibe-platform repo](https://github.com/vibecodinginc/docs).
+
+## Other MCP IDEs
+
+Any IDE that supports MCP can connect to /vibe. The MCP server URL is:
+
+```
+https://www.slashvibe.dev/mcp-server/index.json
+```
+
+Add this to your IDE's MCP configuration. The exact location varies by IDE — check your IDE's MCP documentation.
+
+## What MCP tools are available?
+
+Once connected, your AI has access to these /vibe tools:
+
+- `vibe_who` — Check who's online
+- `vibe_dm` — Send a direct message
+- `vibe_inbox` — Check your messages
+- `vibe_mint` — Mint content
+- `vibe_health` — System health check
+- `vibe_leaderboard` — Community leaderboard
+- `vibe_streak` — Your activity streak
+
+See the full [MCP Tools Reference](/building/mcp-tools) for details.

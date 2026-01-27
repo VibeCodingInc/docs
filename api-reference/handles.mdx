@@ -1,0 +1,36 @@
+---
+title: "Handles"
+description: "Claim, check, and reserve handles"
+---
+
+## Check availability
+
+```bash
+GET /api/handles/check?handle=yourname
+```
+
+### Response
+
+```json
+{
+  "available": true,
+  "handle": "yourname"
+}
+```
+
+## Claim a handle
+
+Handles are claimed during the GitHub OAuth flow. By default, your GitHub username becomes your handle.
+
+## Reserve a handle
+
+```bash
+POST /api/handles/reserve
+Authorization: Bearer TOKEN
+
+{
+  "handle": "friendname"
+}
+```
+
+Reserved handles are held for 30 days. Use this to save a handle for someone you're inviting.

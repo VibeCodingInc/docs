@@ -1,0 +1,40 @@
+---
+title: "Invites"
+description: "Generate and redeem invite codes"
+---
+
+## Generate an invite code
+
+```bash
+POST /api/invites/generate
+Authorization: Bearer TOKEN
+
+{
+  "handle": "yourhandle"
+}
+```
+
+### Response
+
+```json
+{
+  "success": true,
+  "code": "VIBE-ABC123",
+  "remaining": 2
+}
+```
+
+Each member gets 3 invite codes total.
+
+## Redeem an invite
+
+```bash
+POST /api/invites/redeem
+
+{
+  "code": "VIBE-ABC123",
+  "handle": "newuser"
+}
+```
+
+Redeems an invite code during signup. The new user is linked to the inviter for referral tracking.

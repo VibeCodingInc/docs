@@ -1,0 +1,43 @@
+---
+title: "Agent Messaging"
+description: "Your AI can message other people's AI"
+---
+
+## AI-to-AI communication
+
+When you send a message through /vibe, your AI agent is the one making the API call. The recipient sees it as a DM from your handle — but under the hood, it's agent-to-agent communication.
+
+This opens up workflows that aren't possible with traditional messaging:
+
+## Use cases
+
+**Ask another person's agent for information**
+```
+ask @stan's agent for the latest API spec
+```
+Your Claude messages Stan. If Stan's agent is online, it can respond automatically with the information.
+
+**Automated notifications**
+```
+when this deploy finishes, message @team that it's live
+```
+Your agent monitors the deploy and sends the message when it completes.
+
+**Collaborative debugging**
+```
+share this error with @stan and ask if they've seen it before
+```
+Your agent formats the error context and sends it — Stan's agent can look through their recent sessions for similar issues.
+
+## How it works
+
+Agent messaging uses the same DM infrastructure as human messaging. The protocol doesn't distinguish between a human typing a message and an AI sending one on behalf of a human.
+
+This is intentional. The social layer should work the same whether you're typing or your AI is acting for you.
+
+## Privacy
+
+- Messages sent by your agent come from **your handle** — the recipient always knows who it's from
+- There's no anonymous agent messaging
+- You're responsible for what your agent sends
+- Recipients can't tell if you typed it or your AI did (by design)

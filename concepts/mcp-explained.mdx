@@ -1,0 +1,53 @@
+---
+title: "MCP Explained"
+description: "What the Model Context Protocol is and why /vibe uses it"
+---
+
+## What is MCP?
+
+The Model Context Protocol (MCP) is an open standard that lets AI applications connect to external tools and services. Think of it as USB for AI — a universal way to plug capabilities into any AI assistant.
+
+## Why /vibe uses MCP
+
+/vibe is an MCP server. When you install /vibe, you're giving your AI assistant new capabilities:
+
+- See who's online (`vibe_who`)
+- Send messages (`vibe_dm`)
+- Check your inbox (`vibe_inbox`)
+- Go live (`vibe_stream`)
+
+Your AI decides when to use these tools based on what you ask it to do. Say "message stan" and your AI knows to use the `vibe_dm` tool.
+
+## How it works
+
+```
+You → "message stan about the auth bug"
+  ↓
+Your AI (Claude/Cursor) → recognizes this needs vibe_dm tool
+  ↓
+MCP Server (slashvibe.dev) → sends the message
+  ↓
+Stan's inbox → message delivered with receipt
+```
+
+You never leave your terminal. Your AI handles the protocol.
+
+## MCP vs. traditional integrations
+
+| | Traditional | MCP |
+|---|---|---|
+| **Install** | npm install, config files, API keys | One command, AI sets it up |
+| **Usage** | Learn CLI commands or API | Natural language |
+| **Context** | Manual switching | AI keeps context |
+| **Composability** | Each tool is isolated | Tools work together |
+
+## Supported clients
+
+Any MCP-compatible client works with /vibe:
+- Claude Code
+- Cursor
+- Windsurf
+- ChatGPT (with MCP support)
+- Any future MCP client
+
+The protocol is open. As more tools adopt MCP, /vibe works everywhere.
