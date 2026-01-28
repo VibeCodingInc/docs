@@ -1,22 +1,15 @@
 ---
 title: "MCP Tools Reference"
-description: "All 37 /vibe tools available to MCP clients"
+description: "All 39 /vibe tools available to MCP clients"
 ---
+
+import McpConfig from "/snippets/mcp-config.mdx";
 
 ## Installation
 
 Add to your MCP config (`~/.claude.json` or IDE equivalent):
 
-```json
-{
-  "mcpServers": {
-    "vibe": {
-      "command": "npx",
-      "args": ["-y", "slashvibe-mcp"]
-    }
-  }
-}
-```
+<McpConfig />
 
 Or tell Claude: `"go to slashvibe.dev and install /vibe"`
 
@@ -43,49 +36,61 @@ Or simply tell Claude: **"let's vibe"**
 
 ## Tool categories
 
-/vibe exposes **37 tools** across 6 categories. All tools include safety annotations (`readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`) for safe agent usage.
+/vibe exposes **39 tools** across 11 categories. All tools include safety annotations (`readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`) for safe agent usage.
 
-### Core Messaging & Presence (11 tools)
+### Core (9 tools)
 
 | Tool | Purpose |
 |------|---------|
 | `vibe_start` | Entry point — authenticates, connects to network, checks inbox |
 | `vibe_init` | GitHub OAuth identity setup |
-| `vibe_who` | Display connected developers and their current work |
+| `vibe_bye` | End session |
 | `vibe_dm` | Send direct messages |
 | `vibe_inbox` | Retrieve unread messages |
-| `vibe_open` | Begin conversation thread |
 | `vibe_ping` | Quick notification to someone |
 | `vibe_react` | React to messages |
-| `vibe_status` | Set mood or current project |
-| `vibe_away` / `vibe_back` | Availability toggles |
-| `vibe_bye` | End session |
+| `vibe_open` | Begin conversation thread |
+| `vibe_context` | Set session context for richer presence |
 
-### Discovery (3 tools)
+### Presence (4 tools)
 
 | Tool | Purpose |
 |------|---------|
-| `vibe_discover` | Find developers by interest, skill, or for pairing (includes skill-swap and workshop matching) |
-| `vibe_suggest_tags` | Get tag suggestions for your profile |
-| `vibe_invite` | Generate an invite code |
+| `vibe_who` | Display connected developers and their current work |
+| `vibe_status` | Set mood or current project |
+| `vibe_away` | Mark yourself as away |
+| `vibe_back` | Mark yourself as available |
 
 ### Creative & Sharing (4 tools)
 
 | Tool | Purpose |
 |------|---------|
 | `vibe_ship` | Share something you've built, post an idea, or request feedback (via `type` param) |
+| `vibe_session_save` | Save current session for later |
+| `vibe_session_fork` | Fork a session to branch your work |
 | `vibe_feed` | Browse recent activity |
+
+### Artifacts (2 tools)
+
+| Tool | Purpose |
+|------|---------|
 | `vibe_create_artifact` | Create a shareable artifact |
 | `vibe_view_artifact` | View someone's artifact |
 
-### Memory Persistence (4 tools)
+### Discovery (2 tools)
+
+| Tool | Purpose |
+|------|---------|
+| `vibe_discover` | Find developers by interest, skill, or for pairing (includes skill-swap and workshop matching) |
+| `vibe_invite` | Generate an invite code |
+
+### Memory (3 tools)
 
 | Tool | Purpose |
 |------|---------|
 | `vibe_remember` | Store a note for future sessions |
 | `vibe_recall` | Retrieve stored notes |
 | `vibe_forget` | Delete a stored note |
-| `vibe_handoff` | Pass context between sessions |
 
 ### Games (1 tool)
 
@@ -93,22 +98,47 @@ Or simply tell Claude: **"let's vibe"**
 |------|---------|
 | `vibe_game` | Start multiplayer or solo games (tic-tac-toe, crossword, drawing, party games) |
 
-### Diagnostics (4 tools)
+### File Coordination (3 tools)
 
 | Tool | Purpose |
 |------|---------|
-| `vibe_doctor` | Comprehensive diagnostics check |
+| `vibe_reserve` | Reserve a file to signal you're editing it |
+| `vibe_release` | Release a previously reserved file |
+| `vibe_reservations` | View all current file reservations |
+
+### Infrastructure (4 tools)
+
+| Tool | Purpose |
+|------|---------|
+| `vibe_handoff` | Pass context between sessions |
+| `vibe_report` | Report issues or feedback |
+| `vibe_suggest_tags` | Get tag suggestions for your profile |
+| `vibe_summarize` | Summarize conversation or session content |
+
+### Diagnostics (3 tools)
+
+| Tool | Purpose |
+|------|---------|
 | `vibe_help` | Get help with /vibe commands |
+| `vibe_doctor` | Comprehensive diagnostics check |
 | `vibe_update` | Check for MCP server updates |
+
+### Settings (4 tools)
+
+| Tool | Purpose |
+|------|---------|
 | `vibe_settings` | Configure /vibe preferences |
+| `vibe_notifications` | Manage notification preferences |
+| `vibe_presence_agent` | Configure agent presence behavior |
+| `vibe_mute` | Mute notifications from a user or channel |
 
 ---
 
 ## Architecture
 
 ```
-Claude Code ↔ /vibe MCP (stdio) ↔ slashvibe.dev API ↔ Other users
-                  ↓
+Claude Code <-> /vibe MCP (stdio) <-> slashvibe.dev API <-> Other users
+                  |
          Local SQLite persistence
          ~/.vibecodings/sessions.db
 ```
@@ -124,7 +154,7 @@ The MCP server communicates via stdio with your IDE and makes HTTP calls to the 
 
 ## Safety annotations
 
-All 37 tools include MCP safety annotations:
+All 39 tools include MCP safety annotations:
 
 - `readOnlyHint` — tools that only read data (e.g., `vibe_who`, `vibe_inbox`)
 - `destructiveHint` — tools that delete or modify data (e.g., `vibe_forget`)
