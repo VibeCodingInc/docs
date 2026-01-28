@@ -1,6 +1,6 @@
 ---
 title: "MCP Tools Reference"
-description: "All 68 /vibe tools available to MCP clients"
+description: "All 37 /vibe tools available to MCP clients"
 ---
 
 ## Installation
@@ -43,7 +43,7 @@ Or simply tell Claude: **"let's vibe"**
 
 ## Tool categories
 
-/vibe exposes **68 tools** across 7 categories. All tools include safety annotations (`readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`) for safe agent usage.
+/vibe exposes **37 tools** across 6 categories. All tools include safety annotations (`readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`) for safe agent usage.
 
 ### Core Messaging & Presence (11 tools)
 
@@ -61,23 +61,19 @@ Or simply tell Claude: **"let's vibe"**
 | `vibe_away` / `vibe_back` | Availability toggles |
 | `vibe_bye` | End session |
 
-### Discovery (5 tools)
+### Discovery (3 tools)
 
 | Tool | Purpose |
 |------|---------|
-| `vibe_discover` | Find developers by interest or skill |
+| `vibe_discover` | Find developers by interest, skill, or for pairing (includes skill-swap and workshop matching) |
 | `vibe_suggest_tags` | Get tag suggestions for your profile |
-| `vibe_skills_exchange` | Find skill-swap partners |
-| `vibe_workshop_buddy` | Find someone to pair with |
 | `vibe_invite` | Generate an invite code |
 
-### Creative & Sharing (6 tools)
+### Creative & Sharing (4 tools)
 
 | Tool | Purpose |
 |------|---------|
-| `vibe_ship` | Share something you've built |
-| `vibe_idea` | Post an idea for feedback |
-| `vibe_request` | Request help or feedback |
+| `vibe_ship` | Share something you've built, post an idea, or request feedback (via `type` param) |
 | `vibe_feed` | Browse recent activity |
 | `vibe_create_artifact` | Create a shareable artifact |
 | `vibe_view_artifact` | View someone's artifact |
@@ -91,32 +87,17 @@ Or simply tell Claude: **"let's vibe"**
 | `vibe_forget` | Delete a stored note |
 | `vibe_handoff` | Pass context between sessions |
 
-### Games (6 tools)
+### Games (1 tool)
 
 | Tool | Purpose |
 |------|---------|
-| `vibe_game` | Start a multiplayer game |
-| `vibe_solo_game` | Play a single-player game |
-| `vibe_tictactoe` | Play tic-tac-toe with another builder |
-| `vibe_crossword` | Collaborative crossword puzzles |
-| `vibe_drawing` | ASCII drawing game |
-| `vibe_party_game` | Group party games |
+| `vibe_game` | Start multiplayer or solo games (tic-tac-toe, crossword, drawing, party games) |
 
-### Cross-Platform Bridges (4 tools)
-
-| Tool | Purpose |
-|------|---------|
-| `vibe_x_mentions` | Check X/Twitter mentions |
-| `vibe_x_reply` | Reply to X/Twitter mentions |
-| `vibe_social_inbox` | Unified social inbox |
-| `vibe_social_post` | Post to social platforms |
-
-### Diagnostics (5 tools)
+### Diagnostics (4 tools)
 
 | Tool | Purpose |
 |------|---------|
 | `vibe_doctor` | Comprehensive diagnostics check |
-| `vibe_test` | Run connectivity tests |
 | `vibe_help` | Get help with /vibe commands |
 | `vibe_update` | Check for MCP server updates |
 | `vibe_settings` | Configure /vibe preferences |
@@ -143,11 +124,11 @@ The MCP server communicates via stdio with your IDE and makes HTTP calls to the 
 
 ## Safety annotations
 
-All 68 tools include MCP safety annotations:
+All 37 tools include MCP safety annotations:
 
 - `readOnlyHint` — tools that only read data (e.g., `vibe_who`, `vibe_inbox`)
 - `destructiveHint` — tools that delete or modify data (e.g., `vibe_forget`)
 - `idempotentHint` — tools safe to retry (e.g., `vibe_status`)
-- `openWorldHint` — tools that interact with external services (e.g., `vibe_x_reply`)
+- `openWorldHint` — tools that interact with external services
 
 These annotations help AI clients make safe decisions about when to use tools automatically vs. when to ask for confirmation.
