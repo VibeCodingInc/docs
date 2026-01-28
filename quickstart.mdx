@@ -3,6 +3,8 @@ title: "Quickstart"
 description: "Install /vibe in 30 seconds"
 ---
 
+import McpConfig from "/snippets/mcp-config.mdx";
+
 ## The fast way
 
 Tell Claude (or any MCP-compatible AI):
@@ -27,43 +29,16 @@ If you prefer to set it up yourself:
     <Tabs>
       <Tab title="Claude Code">
         Add to `~/.claude.json`:
-        ```json
-        {
-          "mcpServers": {
-            "vibe": {
-              "command": "npx",
-              "args": ["-y", "slashvibe-mcp"]
-            }
-          }
-        }
-        ```
+        <McpConfig />
         Then restart Claude Code.
       </Tab>
       <Tab title="Cursor">
         Add to your Cursor MCP settings (see [Cursor setup guide](/guides/ide-support)):
-        ```json
-        {
-          "mcpServers": {
-            "vibe": {
-              "command": "npx",
-              "args": ["-y", "slashvibe-mcp"]
-            }
-          }
-        }
-        ```
+        <McpConfig />
       </Tab>
       <Tab title="Other MCP IDEs">
         Any MCP-compatible IDE can run /vibe. Add to your MCP config:
-        ```json
-        {
-          "mcpServers": {
-            "vibe": {
-              "command": "npx",
-              "args": ["-y", "slashvibe-mcp"]
-            }
-          }
-        }
-        ```
+        <McpConfig />
       </Tab>
     </Tabs>
   </Step>

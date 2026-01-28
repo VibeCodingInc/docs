@@ -2,6 +2,17 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "/vibe docs",
+  "search": {
+    "prompt": "Search /vibe docs..."
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
+    }
+  },
+  "feedback": {
+    "thumbsRating": true
+  },
   "colors": {
     "primary": "#00FF41",
     "light": "#00FF88",
