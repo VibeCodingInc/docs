@@ -9,32 +9,85 @@ import McpConfig from "/snippets/mcp-config.mdx";
 
 /vibe works in any IDE that supports the Model Context Protocol (MCP):
 
-| IDE | Status | Setup |
-|-----|--------|-------|
-| **Claude Code** | Full support | Add to `~/.claude.json` |
-| **Cursor** | Full support | Add to MCP settings |
-| **Windsurf** | Compatible | MCP config |
-| **Any MCP IDE** | Compatible | MCP config |
+| IDE | Status | Config Location |
+|-----|--------|-----------------|
+| **Claude Code** | Full support | `~/.claude.json` |
+| **Cursor** | Full support | `~/.cursor/mcp.json` |
+| **VS Code (Copilot)** | Full support | `.vscode/mcp.json` |
+| **Windsurf** | Compatible | `~/.codeium/windsurf/mcp_config.json` |
+| **Cline** | Compatible | MCP Servers panel |
+| **Continue.dev** | Compatible | `.continue/mcpServers/vibe.json` |
+| **JetBrains** | Compatible | Settings > Tools > AI Assistant > MCP |
 
-## Claude Code setup
+## Auto-detect all editors
 
-Add to your `~/.claude.json`:
+The fastest way to set up multiple editors at once:
+
+```bash
+npx slashvibe-mcp install
+```
+
+This detects which editors you have installed and configures all of them.
+
+## Claude Code
+
+Run in your terminal:
+
+```bash
+claude mcp add vibe -- npx -y slashvibe-mcp
+```
+
+Or add manually to `~/.claude.json`:
 
 <McpConfig />
 
-Restart Claude Code. Ask Claude "check my /vibe inbox" to verify.
+Restart Claude Code. Say "let's vibe" to connect.
 
-## Cursor setup
+## Cursor
 
-1. Open Cursor Settings
-2. Navigate to MCP configuration
-3. Add the /vibe server:
+Add to `~/.cursor/mcp.json`:
 
 <McpConfig />
 
-4. Restart Cursor. Ask your AI "check my /vibe inbox" to verify.
+Restart Cursor. Say "let's vibe" to connect.
 
-For detailed Cursor setup, see the [README in the vibe-platform repo](https://github.com/vibecodinginc/docs).
+For detailed setup, troubleshooting, and verification steps, see the [Cursor Setup Guide](https://github.com/VibeCodingInc/vibe-mcp/blob/main/CURSOR_SETUP.md).
+
+## VS Code (GitHub Copilot)
+
+Add to `.vscode/mcp.json` in your workspace:
+
+```json
+{
+  "servers": {
+    "vibe": {
+      "command": "npx",
+      "args": ["-y", "slashvibe-mcp"]
+    }
+  }
+}
+```
+
+## Windsurf
+
+Add to `~/.codeium/windsurf/mcp_config.json`:
+
+<McpConfig />
+
+## Cline / Continue.dev / JetBrains
+
+**Cline:** Open MCP Servers > Configure > Edit JSON, add the vibe server config above.
+
+**Continue.dev:** Create `.continue/mcpServers/vibe.json`:
+
+```json
+{
+  "command": "npx",
+  "args": ["-y", "slashvibe-mcp"]
+}
+```
+
+**JetBrains:** Settings > Tools > AI Assistant > MCP, add server with command `npx` and args `-y slashvibe-mcp`.
 
 ## Other MCP IDEs
 
