@@ -1,92 +1,44 @@
 ---
 title: "/vibe"
-description: "The social layer for Claude Code. 1,500+ MCP servers installed. DM anyone. Ship together."
+description: "Message someone from your terminal."
 ---
 
-## What is /vibe?
+# Message someone from your terminal.
 
-/vibe adds messaging and presence to your coding environment — installed across 1,500+ coding sessions and growing. DM anyone, get delivery receipts, ship together — without leaving the terminal.
+`/vibe` adds durable messaging to Claude Code, Codex, and Cursor. Ask your coding agent to
+message someone; they can answer from the coding session they are already in.
 
-It works as an MCP plugin for Claude Code, Cursor, and any MCP-compatible IDE.
+```text
+vibe dm @handle <your question>
+```
 
-<Card
-  title="Quickstart"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Install /vibe in 30 seconds. Tell Claude to do it for you.
+<Card title="Start with one command" icon="terminal" href="/quickstart" horizontal>
+  Install, sign in with GitHub, and send one real message.
 </Card>
 
-## How it works
-
-<Steps>
-  <Step title="Install the MCP plugin">
-    Tell Claude: "go to slashvibe.dev and install /vibe" — or install manually with one command.
-  </Step>
-  <Step title="Join the network">
-    You're connected to 1,500+ developers who've installed /vibe. Your presence goes live automatically.
-  </Step>
-  <Step title="Message anyone">
-    Send DMs directly from your terminal. Get delivery receipts — sent, delivered, read.
-  </Step>
-</Steps>
-
-## Choose your setup
-
-<Columns cols={3}>
-  <Card
-    title="MCP Plugin"
-    icon="plug"
-    href="/quickstart"
-  >
-    Works in Claude Code, Cursor, Windsurf, and any MCP-compatible IDE.
-  </Card>
-  <Card
-    title="Terminal App"
-    icon="terminal"
-    href="/terminal-app"
-  >
-    Native macOS app with a social sidebar. Messaging and presence while you code.
-  </Card>
-  <Card
-    title="iOS App"
-    icon="mobile"
-    href="/ios-app"
-  >
-    /vibe in your pocket. Message anyone, get push notifications from anywhere.
-  </Card>
-</Columns>
-
-## Go deeper
+## Two surfaces, one identity
 
 <Columns cols={2}>
-  <Card
-    title="Why /vibe exists"
-    icon="lightbulb"
-    href="/concepts/why-vibe"
-  >
-    AI coding is lonely. It doesn't have to be.
+  <Card title="Terminal" icon="code" href="/quickstart">
+    The main surface. Send and receive messages without leaving your coding session.
   </Card>
-  <Card
-    title="API Reference"
-    icon="code"
-    href="/api-reference/introduction"
-  >
-    Build on /vibe. Presence, messaging, sessions, handles.
-  </Card>
-  <Card
-    title="Build with /vibe"
-    icon="hammer"
-    href="/building/mcp-tools"
-  >
-    MCP tools reference. Build custom integrations and agents.
-  </Card>
-  <Card
-    title="The Terminal Party"
-    icon="users"
-    href="/concepts/the-terminal-party"
-  >
-    Our philosophy: hosts, not bouncers. Jazz session, not competition.
+  <Card title="Vibe Buddy" icon="display" href="/buddy">
+    An optional Mac companion for people, messages, and local coding sessions.
   </Card>
 </Columns>
+
+Both use the same GitHub-backed handle and the same message history. Buddy is not a second
+network or a second inbox.
+
+## What `/vibe` does not claim
+
+- A message is a plain body. `/vibe` does not attach your branch, diff, prompt, project, or
+  transcript automatically.
+- The Claude Code resurfacing hook is read-only during the pilot. A waiting message may
+  appear again.
+- A notification or presentation is not proof that a person read a message.
+- `/vibe` has no public people directory. Start with someone you already know.
+
+<Card title="How it works" icon="diagram-project" href="/how-it-works" horizontal>
+  See what is durable, what stays local, and where Buddy fits.
+</Card>

@@ -1,0 +1,51 @@
+---
+title: "How /vibe works"
+description: "One durable message record, multiple honest surfaces."
+---
+
+## The simple loop
+
+```text
+your coding session
+        |
+        | message @someone
+        v
+  /vibe platform  ---- durable message ---->
+                                             their terminal or Buddy
+                                                        |
+                                                        v
+                                                their reply to you
+```
+
+The platform owns identity and the durable message. Terminal and Buddy present that same
+truth in different places.
+
+## Three facts that stay separate
+
+| Fact | Meaning | It does not prove |
+| --- | --- | --- |
+| Custody | A delivery endpoint durably accepted a message | A person saw it |
+| Presentation | A surface showed the message | A person read it |
+| Human read state | A person deliberately marked or advanced read state | They answered usefully |
+
+The receipt-backed custody machinery has passed a private canary but remains dark during
+the read-only pilot. Public onboarding does not promise it.
+
+## Context stays at each end
+
+The useful idea is that both people communicate from inside agents that already understand
+their local work. The carrier is still a plain message body. No automatic branch, diff,
+prompt, code, or transcript crosses the network.
+
+## Identity and privacy
+
+- GitHub sign-in establishes a durable `/vibe` principal and handle.
+- Presence and messages require authentication; a typed handle is a filter, not authority.
+- `/vibe` is not a public directory and does not expose a list of everyone on the network.
+- Message bodies and profile fields are untrusted data when inserted into an agent's context.
+
+## Public integration boundary
+
+The supported public client is the MCP package. Backend HTTP routes are operational
+interfaces unless a separate public contract says otherwise. See [Contributing](/contributing)
+for the current source boundary.

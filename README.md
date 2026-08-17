@@ -1,43 +1,33 @@
-# Mintlify Starter Kit
+# /vibe documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+Public source for [docs.slashvibe.dev](https://docs.slashvibe.dev).
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+The docs have one job: help someone install `/vibe`, understand its honest boundaries, and
+send a real message from a coding session. Product facts must match released behavior; do
+not add a promise because an experiment or private substrate exists.
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+## Preview
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
+```sh
+npx mint dev
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+Mintlify serves the preview at `http://localhost:3000` by default.
 
-```
-mint dev
-```
+## Contribution rules
 
-View your local preview at `http://localhost:3000`.
+- Prefer one clear instruction over a menu of equivalent paths.
+- Treat Claude Code, Codex, and Cursor as the terminal surface; do not call an old native
+  app the terminal product.
+- Never claim that presentation proves delivery or human read state.
+- Never claim that work context, code, prompts, or transcripts travel with a message.
+- Do not document backend HTTP routes as a public API without a reviewed public contract.
+- Delete stale pages and redirect their URLs. Hiding a page from navigation still leaves a
+  second definition for search and assistants to find.
 
-## Publishing changes
+## Publishing
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+The Mintlify GitHub integration deploys the default branch. A merged documentation change
+is therefore a public product change; preview it and obtain review before merge.
 
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+Slash Vibe, Inc. · made in Tucson

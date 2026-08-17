@@ -1,0 +1,39 @@
+---
+title: "Contributing"
+description: "What is public now and where help is useful."
+---
+
+## Public now
+
+The documentation source is public at
+[`VibeCodingInc/docs`](https://github.com/VibeCodingInc/docs). Corrections that make setup,
+limits, or first use clearer are welcome as pull requests.
+
+Vibe Buddy's signed binaries and release notes are public at
+[`VibeCodingInc/vibe-buddy-releases`](https://github.com/VibeCodingInc/vibe-buddy-releases).
+
+## Terminal client source
+
+The current `slashvibe-mcp` implementation is moving to a scoped public client repository.
+The old public repository contains historical source and is not yet the source-of-record for
+the current npm package. We will not point contributors at stale code and call it open.
+
+Until that transition is complete, use the npm package, improve these docs, or coordinate a
+bounded contribution with the maintainers.
+
+## Platform source
+
+The production platform repository remains private. It contains identity, durable messages,
+migrations, deployment configuration, internal operations, and unrelated company history.
+Opening the terminal client does not require exposing that operating estate.
+
+## Good first contributions
+
+- reproduce first-time setup on a clean machine and report the exact step that was unclear
+- improve an instruction only when the product actually behaves that way
+- add a regression test for a user-visible failure
+- remove a second definition rather than updating two copies
+
+Please do not propose a new transport, social feed, directory, or delivery claim as an
+onboarding fix. `/vibe` is currently testing one loop: message someone from your terminal,
+then receive a useful reply.

@@ -1,78 +1,57 @@
 ---
 title: "Quickstart"
-description: "Install /vibe in 30 seconds"
+description: "Install /vibe and send one real message."
 ---
 
-import McpConfig from "/snippets/mcp-config.mdx";
+## 1. Install
 
-## The fast way
+Run this in a terminal:
 
-Tell Claude (or any MCP-compatible AI):
-
-```
-go to slashvibe.dev and install /vibe
+```sh
+npx slashvibe-mcp
 ```
 
-Claude reads the install page, downloads the MCP server config, and sets it up. You're done.
+The installer opens GitHub sign-in and configures Claude Code, Codex, and Cursor when they
+are present. Your GitHub username becomes your initial `/vibe` handle.
 
-## Manual install
+## 2. Restart your coding host
 
-If you prefer to set it up yourself:
+Restart Claude Code, Codex, or Cursor so it loads the new MCP server.
 
-<Steps>
-  <Step title="Sign in with GitHub">
-    Go to [slashvibe.dev](https://slashvibe.dev) and sign in with GitHub. Your handle defaults to your GitHub username.
-  </Step>
-  <Step title="Install the MCP server">
-    Add the /vibe MCP server to your IDE config:
+## 3. Send one real message
 
-    <Tabs>
-      <Tab title="Claude Code">
-        Add to `~/.claude.json`:
-        <McpConfig />
-        Then restart Claude Code.
-      </Tab>
-      <Tab title="Cursor">
-        Add to your Cursor MCP settings (see [Cursor setup guide](/guides/ide-support)):
-        <McpConfig />
-      </Tab>
-      <Tab title="Other MCP IDEs">
-        Any MCP-compatible IDE can run /vibe. Add to your MCP config:
-        <McpConfig />
-      </Tab>
-    </Tabs>
-  </Step>
-  <Step title="Send your first message">
-    Ask Claude:
-    ```
-    send a DM to @seth saying hello
-    ```
-    You'll see delivery receipts: sent, delivered, read. Then check who else is connected:
-    ```
-    who's on /vibe?
-    ```
-  </Step>
-</Steps>
+Inside the coding session, ask naturally or use the direct form:
 
-## What you can do now
+```text
+vibe dm @handle <your question>
+```
 
-Once installed, try these:
+Start with someone you already know. `/vibe` intentionally has no public people directory.
 
-| Command | What it does |
-|---------|-------------|
-| `who's on /vibe?` | See connected developers |
-| `DM @handle message` | Send a direct message |
-| `check my messages` | Read your inbox |
-| `go live` | Start a Watch Me Code session |
-| `invite someone` | Generate an invite code |
+## Claude Code: show waiting messages at session start
 
-## Next steps
+```sh
+npx slashvibe-mcp hook install
+```
 
-<Columns cols={2}>
-  <Card title="Presence" icon="eye" href="/guides/presence">
-    See who's connected and what they're building.
-  </Card>
-  <Card title="Messaging" icon="message" href="/guides/messaging">
-    DMs, delivery receipts, and agent messaging.
-  </Card>
-</Columns>
+Restart Claude Code after installing the hook. Waiting messages can then appear at the top
+of a later session.
+
+<Note>
+  The pilot hook is read-only. It does not mark a message delivered or read, so the same
+  waiting message may appear again.
+</Note>
+
+## Check the setup
+
+```sh
+npx slashvibe-mcp hook status
+```
+
+Inside the coding host, ask `/vibe` who is around or check your inbox. Signed-out, offline,
+and empty states should say so; they should not invent presence or delivery.
+
+## Need the Mac companion?
+
+Vibe Buddy is optional. Install it after terminal messaging works if you want a quiet,
+persistent view of people, messages, and local coding sessions. See [Vibe Buddy](/buddy).

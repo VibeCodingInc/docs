@@ -3,121 +3,52 @@
   "theme": "mint",
   "name": "/vibe docs",
   "search": {
-    "prompt": "Search /vibe docs..."
-  },
-  "api": {
-    "playground": {
-      "display": "interactive"
-    }
+    "prompt": "Search /vibe docs"
   },
   "feedback": {
     "thumbsRating": true
   },
   "colors": {
-    "primary": "#00FF41",
-    "light": "#00FF88",
-    "dark": "#00CC33"
+    "primary": "#6B8FFF",
+    "light": "#8BA8FF",
+    "dark": "#5978D6"
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "index",
-              "quickstart",
-              "terminal-app",
-              "ios-app"
-            ]
-          },
-          {
-            "group": "Features",
-            "pages": [
-              "guides/presence",
-              "guides/messaging",
-              "guides/watch-me-code",
-              "guides/ide-support"
-            ]
-          },
-          {
-            "group": "Community",
-            "pages": [
-              "guides/invite-friends",
-              "guides/genesis-handles"
-            ]
-          }
+        "group": "Start",
+        "pages": [
+          "index",
+          "quickstart",
+          "buddy"
         ]
       },
       {
-        "tab": "Concepts",
-        "groups": [
-          {
-            "group": "Why /vibe",
-            "pages": [
-              "concepts/why-vibe",
-              "concepts/the-terminal-party",
-              "concepts/history"
-            ]
-          },
-          {
-            "group": "Technical",
-            "pages": [
-              "concepts/mcp-explained",
-              "concepts/agent-messaging"
-            ]
-          }
+        "group": "Understand",
+        "pages": [
+          "how-it-works",
+          "mcp-tools"
         ]
       },
       {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication"
-            ]
-          },
-          {
-            "group": "Endpoints",
-            "pages": [
-              "api-reference/presence",
-              "api-reference/messages",
-              "api-reference/handles",
-              "api-reference/sessions",
-              "api-reference/invites"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Build on /vibe",
-        "groups": [
-          {
-            "group": "Developer Guide",
-            "pages": [
-              "building/mcp-tools",
-              "building/custom-integrations",
-              "building/agent-development"
-            ]
-          }
+        "group": "Help improve /vibe",
+        "pages": [
+          "contributing"
         ]
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Get /vibe",
-          "href": "https://slashvibe.dev/downloads",
-          "icon": "download"
+          "anchor": "Start /vibe",
+          "href": "https://www.slashvibe.dev/join",
+          "icon": "terminal"
         },
         {
-          "anchor": "Community",
-          "href": "https://slashvibe.dev",
-          "icon": "users"
+          "anchor": "Vibe Buddy",
+          "href": "https://www.slashvibe.dev/buddy",
+          "icon": "display"
         }
       ]
     }
@@ -130,13 +61,17 @@
     "links": [
       {
         "label": "slashvibe.dev",
-        "href": "https://slashvibe.dev"
+        "href": "https://www.slashvibe.dev"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/VibeCodingInc/docs"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Get /vibe",
-      "href": "https://slashvibe.dev/downloads"
+      "label": "Start /vibe",
+      "href": "https://www.slashvibe.dev/join"
     }
   },
   "contextual": {
@@ -150,8 +85,26 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/slashvibedev",
-      "github": "https://github.com/vibecodinginc"
+      "github": "https://github.com/VibeCodingInc"
     }
-  }
+  },
+  "redirects": [
+    { "source": "/terminal-app", "destination": "/buddy" },
+    { "source": "/ios-app", "destination": "/buddy" },
+    { "source": "/guides/presence", "destination": "/how-it-works" },
+    { "source": "/guides/messaging", "destination": "/how-it-works" },
+    { "source": "/guides/watch-me-code", "destination": "/how-it-works" },
+    { "source": "/guides/ide-support", "destination": "/quickstart" },
+    { "source": "/guides/invite-friends", "destination": "/quickstart" },
+    { "source": "/guides/genesis-handles", "destination": "/quickstart" },
+    { "source": "/concepts/why-vibe", "destination": "/how-it-works" },
+    { "source": "/concepts/the-terminal-party", "destination": "/how-it-works" },
+    { "source": "/concepts/history", "destination": "/how-it-works" },
+    { "source": "/concepts/mcp-explained", "destination": "/how-it-works" },
+    { "source": "/concepts/agent-messaging", "destination": "/how-it-works" },
+    { "source": "/building/mcp-tools", "destination": "/mcp-tools" },
+    { "source": "/building/custom-integrations", "destination": "/contributing" },
+    { "source": "/building/agent-development", "destination": "/contributing" },
+    { "source": "/api-reference/:path*", "destination": "/how-it-works" }
+  ]
 }
