@@ -44,12 +44,45 @@ of a later session.
 
 ## Check the setup
 
+For Claude Code, inspect the configured server:
+
+```sh
+claude mcp get vibe
+```
+
+The command should resolve to `npx -y slashvibe-mcp@latest`.
+
+If you installed the optional hook, check it separately:
+
 ```sh
 npx slashvibe-mcp hook status
 ```
 
 Inside the coding host, ask `/vibe` who is around or check your inbox. Signed-out, offline,
 and empty states should say so; they should not invent presence or delivery.
+
+## Returning from an older Claude Code install
+
+Older installs can leave `vibe` pinned to an earlier package. The installer currently keeps
+an existing MCP entry instead of replacing it, so check from the project directory where
+you plan to use `/vibe`:
+
+```sh
+claude mcp get vibe
+```
+
+If it names a pinned version, run the exact scope-specific `claude mcp remove` command that
+Claude prints. Check again because `vibe` can exist in more than one scope. Remove only the
+named `vibe` entry until `claude mcp get vibe` reports that it is missing, then run:
+
+```sh
+npx slashvibe-mcp
+claude mcp get vibe
+```
+
+Confirm that the new entry uses `slashvibe-mcp@latest`, then restart Claude Code. A stale
+project-local entry can override a current user entry, so trust the scope reported by
+`claude mcp get vibe` rather than editing configuration JSON by hand.
 
 ## Need the Mac companion?
 
