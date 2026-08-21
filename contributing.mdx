@@ -14,19 +14,15 @@ Vibe Buddy's signed binaries and release notes are public at
 
 ## Terminal client source
 
-The current `slashvibe-mcp` implementation is moving to a scoped public client repository.
-The old public repository contains historical source and is not yet the source-of-record for
-the current npm package. We will not point contributors at stale code and call it open.
-
-The repository and issue links in `slashvibe-mcp@0.8.16` still point to the private platform
-repository. They are known transition defects, not valid public contribution links.
-
-Until that transition is complete, use the npm package, improve these docs, or coordinate a
-bounded contribution with the maintainers.
+`slashvibe-mcp` is open source. Its public **source-of-record** is
+[`VibeCodingInc/vibe-mcp`](https://github.com/VibeCodingInc/vibe-mcp): the npm package
+(0.8.17) is built and published from there, and that is where client changes are proposed
+and reviewed. Contribute there directly — file issues and open pull requests against
+`vibe-mcp`.
 
 ## Platform source
 
-The production platform repository remains private. It contains identity, durable messages,
+The production platform repository remains private today. It contains identity, messages,
 migrations, deployment configuration, internal operations, and unrelated company history.
 Opening the terminal client does not require exposing that operating estate.
 
