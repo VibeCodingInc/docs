@@ -11,20 +11,24 @@ Run this in a terminal:
 npx slashvibe-mcp
 ```
 
-The installer opens GitHub sign-in and configures Claude Code, Codex, and Cursor when they
-are present. Your GitHub username becomes your initial `/vibe` handle.
+The installer opens GitHub sign-in and configures Claude Code and Codex when they are
+present (it also writes Cursor's config; Cursor is not part of the proven path yet). Your
+GitHub username becomes your `/vibe` handle.
 
 ## 2. Restart your coding host
 
-Restart Claude Code, Codex, or Cursor so it loads the new MCP server.
+Restart Claude Code or Codex so it loads the new MCP server.
 
 ## 3. Send one real message
 
-Inside the coding session, ask naturally or use the direct form:
+Inside the coding session, just say it:
 
 ```text
-vibe dm @handle <your question>
+show me who's on /vibe
+message @handle — <your question>
 ```
+
+If it ever asks you to sign in, say `sign in to /vibe`.
 
 Start with someone you already know. `/vibe` intentionally has no public people directory.
 
