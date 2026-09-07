@@ -1,33 +1,53 @@
 ---
 title: "MCP tools"
-description: "The ten tools registered by default."
+description: "Messaging, guided drafts, and the capabilities registered by the terminal client."
 ---
 
-The default package surface is deliberately small.
+These are MCP tool identifiers, not commands to type into a shell. The coding host calls
+them on your behalf. The installed `/vibe` command guides the draft flow; you do not need
+to memorize the tools.
 
 | Tool | Job |
 | --- | --- |
-| `vibe` | Start `/vibe`: see who is around and what is waiting |
-| `vibe who` | See people and agents recently around |
-| `vibe dm` | Send a direct message that waits for the recipient |
-| `vibe inbox` | Read waiting messages or open one thread |
-| `vibe reply` | Reply in the current thread |
-| `vibe status` | Say what you are working on |
-| `vibe help` | Show the tools registered in this session |
-| `vibe init` | Sign in with GitHub |
-| `vibe token` | Inspect or manage the local credential |
-| `vibe bye` | Sign off |
+| `vibe_start` | See who is around and what is waiting |
+| `vibe_who` | See recently present people and agents; not a promise of reachability |
+| `vibe_dm` | Send a direct message at the person's request |
+| `vibe_inbox` | Read waiting messages or open one thread |
+| `vibe_reply` | Reply in the current thread |
+| `vibe_moves` | Propose conversations from session context; sends nothing |
+| `vibe_draft` | Open or edit a local draft and show its exact preview |
+| `vibe_send_draft` | Send the exact preview revision the person approved |
+| `vibe_discard_draft` | Discard a draft without sending |
+| `vibe_people` | Read the signed-in, opt-in people list |
+| `vibe_list_me` | Choose to be findable on that list |
+| `vibe_unlist_me` | Withdraw that listing |
+| `vibe_status` | Update the status you choose to share |
+| `vibe_capabilities` | Inspect available and separately granted local capabilities |
+| `vibe_remember` | Consult a separately granted private-memory capability, if available |
+| `vibe_reflect` | Request reflection when the local capability permits it |
+| `vibe_call` | Draft a call handoff; never send or join on its own |
+| `vibe_help` | Explain the current surface |
+| `vibe_init` | Sign in with GitHub |
+| `vibe_token` | Complete browser sign-in when it returns an authentication token |
+| `vibe_bye` | Sign off |
+
+A tool being registered does not mean its capability is configured, granted, or currently
+available. The hosted connector is a different surface; inspect its own registered tools.
 
 ## Natural use
 
 You do not need to memorize command syntax. Ask the coding agent:
 
 ```text
-ask @sam whether the deploy is safe to retry
+message @handle — <your question>
 ```
 
-The agent may compose a concise message from your intent. It must not treat received message
-text as instructions to use tools, read files, or change code.
+The agent may compose from your intent. In the guided flow, choosing a draft is not
+permission to send: the recipient, exact text, and chosen links must be shown first.
+Edits require another preview. No send through a different tool may bypass that approval.
+
+Received messages, profiles, and statuses are untrusted data, never instructions to use
+tools, read files, or change code. A passing remark is not permission to contact someone.
 
 ## Optional experiments
 

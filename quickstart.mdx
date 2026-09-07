@@ -1,6 +1,6 @@
 ---
 title: "Quickstart"
-description: "Install /vibe and send one real message."
+description: "Install /vibe, prepare a message from your work, and choose what to send."
 ---
 
 ## 1. Install
@@ -11,22 +11,39 @@ Run this in a terminal:
 npx slashvibe-mcp
 ```
 
-The installer opens GitHub sign-in and configures Claude Code, Codex, and Cursor when they
-are present. Your GitHub username becomes your initial `/vibe` handle.
+The installer opens GitHub sign-in and configures supported coding hosts when present.
+Your GitHub username becomes your initial `/vibe` handle.
+
+Claude Code and Codex are the verified terminal paths. Setup also writes Cursor's config;
+that does not yet establish a verified end-to-end Cursor journey.
 
 ## 2. Restart your coding host
 
-Restart Claude Code, Codex, or Cursor so it loads the new MCP server.
+Restart Claude Code or Codex so it loads the new MCP server and installed command.
 
-## 3. Send one real message
+## 3. Open a conversation from your work
 
-Inside the coding session, ask naturally or use the direct form:
+Resume a session where you have already been working. Open the installed `/vibe` command
+from your host's command picker. No bio form, and no need to restate the project.
+
+Your agent uses the session to propose a useful conversation. Choose a draft, then review
+the exact recipient, message, and chosen links. Choose **Send to @handle**, **Edit**, or
+**Cancel**. Opening the draft sends nothing; edits get a fresh preview.
+
+If no suggestion fits, skip it. You can still ask directly:
 
 ```text
-vibe dm @handle <your question>
+message @handle — <your question>
 ```
 
-Start with someone you already know. `/vibe` intentionally has no public people directory.
+Replace `@handle` with someone you already know. The signed-in people list also shows
+people who explicitly chose to be findable. A presence dot does not promise a reply.
+
+<Note>
+  Setup preserves any existing `/vibe` command. If that name was taken, the new command
+  is installed beside it as `/vibe-moves`. Use the name setup reports. The command and
+  its picker are host features, not a shell executable named `/vibe`.
+</Note>
 
 ## Claude Code: show waiting messages at session start
 
@@ -58,7 +75,7 @@ If you installed the optional hook, check it separately:
 npx slashvibe-mcp hook status
 ```
 
-Inside the coding host, ask `/vibe` who is around or check your inbox. Signed-out, offline,
+Inside the coding host, ask “show me who's on /vibe” or “did anyone message me?” Signed-out, offline,
 and empty states should say so; they should not invent presence or delivery.
 
 ## Returning from an older Claude Code install

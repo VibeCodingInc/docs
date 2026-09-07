@@ -42,7 +42,7 @@
       "anchors": [
         {
           "anchor": "Start /vibe",
-          "href": "https://www.slashvibe.dev/join",
+          "href": "https://www.slashvibe.dev",
           "icon": "terminal"
         },
         {
@@ -71,7 +71,7 @@
     "primary": {
       "type": "button",
       "label": "Start /vibe",
-      "href": "https://www.slashvibe.dev/join"
+      "href": "https://www.slashvibe.dev"
     }
   },
   "contextual": {
