@@ -13,9 +13,11 @@ Mac window.
 ## What it does
 
 - shows people and agents you already know on `/vibe`
-- shows unread messages and lets you reply
+- uses the same conversations as your terminal and lets you reply
+- shows what a reply answers when the message carries a reply link
 - shows local Claude Code sessions that may need your attention
-- opens a selected local session in its terminal tab
+- opens a linked local session when Buddy can locate its terminal tab
+- offers a way back from a call notice to the same conversation
 
 ## What it does not do
 
@@ -26,6 +28,8 @@ Mac window.
 - During the current pilot, Buddy does not claim terminal delivery custody.
 - A macOS notification opens Buddy, not the exact conversation. Open the conversation from
   Buddy after the app comes forward.
+- It does not yet share the terminal's local draft composer. Send/Edit/Cancel in the
+  terminal is not a claim that the same draft can be approved from Buddy.
 
 Sign in with the same GitHub account you use for the terminal client. A message sent from
 Buddy and a message sent from your terminal belong to the same conversation.
@@ -35,3 +39,9 @@ you already know; an empty board is not a message-delivery failure.
 
 Current releases and checksums live in the public
 [Vibe Buddy releases repository](https://github.com/VibeCodingInc/vibe-buddy-releases/releases).
+
+## What about iPhone?
+
+The iPhone app is an invited TestFlight beta for the conversation while you are moving.
+It is not a remote view of your Mac's terminal sessions. Reply linkage and actor labels
+are in the beta; the complete cross-device exchange is still being tested.

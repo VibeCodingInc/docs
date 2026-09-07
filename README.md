@@ -17,10 +17,14 @@ Mintlify serves the preview at `http://localhost:3000` by default.
 ## Contribution rules
 
 - Prefer one clear instruction over a menu of equivalent paths.
-- Treat Claude Code, Codex, and Cursor as the terminal surface; do not call an old native
-  app the terminal product.
+- Claude Code and Codex are the verified terminal paths. Cursor configuration support
+  alone is not proof of an end-to-end journey. Do not call an old native app the terminal product.
 - Never claim that presentation proves delivery or human read state.
-- Never claim that work context, code, prompts, or transcripts travel with a message.
+- Explain context-guided composition: an agent prepares from the session and the person
+  approves the exact message. Selected context may cross in those approved words; private
+  drafts, source material, and transcripts are not automatically exported.
+- Distinguish published behavior, invited beta, candidate, and gated capability. A merged
+  backend or a successful lab loop does not establish a complete human journey.
 - Do not document backend HTTP routes as a public API without a reviewed public contract.
 - Delete stale pages and redirect their URLs. Hiding a page from navigation still leaves a
   second definition for search and assistants to find.

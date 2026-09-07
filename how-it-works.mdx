@@ -1,24 +1,22 @@
 ---
 title: "How /vibe works"
-description: "One durable message record, multiple honest surfaces."
+description: "Your agent helps prepare. You choose what crosses. The conversation stays shared."
 ---
 
 ## The simple loop
 
-```text
-your coding session
-        |
-        | message @someone
-        v
-  /vibe platform  ---- durable message ---->
-                                             their terminal or Buddy
-                                                        |
-                                                        v
-                                                their reply to you
-```
+1. **Your work supplies the context.** Your coding agent can prepare a useful question
+   from the session you are already in.
+2. **You choose what crosses.** Open a draft, inspect the exact recipient, message, and
+   chosen links, then Send, Edit, or Cancel. An edit requires a fresh preview.
+3. **The other person brings their context.** They receive the approved message, not
+   your private corpus. They can answer from their own coding session or Buddy.
+4. **The conversation waits.** Messages remain in the same conversation when either
+   person goes away. The optional Claude Code startup hook can show waiting replies.
 
-The platform owns identity and the durable message. Terminal and Buddy present that same
-truth in different places.
+The platform owns identity and the durable message record. Terminal, Mac Buddy, and the
+invited iPhone beta present that record. A draft is not a send; a reply in the thread is
+not proof that it reopened the exact piece of work.
 
 ## Three facts that stay separate
 
@@ -28,21 +26,44 @@ truth in different places.
 | Presentation | A surface showed the message | A person read it |
 | Human read state | A person deliberately marked or advanced read state | They answered usefully |
 
-The receipt-backed custody machinery has passed a private canary but remains dark during
-the read-only pilot. Public onboarding does not promise it.
+Use only the facts a surface actually serves. Neither a green dot nor a successful send
+means someone read, understood, or will answer the message.
 
 ## Context stays at each end
 
 The useful idea is that both people communicate from inside agents that already understand
-their local work. The carrier is still a plain message body. No automatic branch, diff,
-prompt, code, or transcript crosses the network.
+their own work. The draft may express a selected part of that context in words. What
+crosses is the approved message, chosen links, and routing/approval metadata—not an
+automatic export of your branch, diff, prompts, files, or transcript.
+
+Drafts and discarded candidates stay in the local client. A private pointer back to your
+terminal session stays on your Mac. Sharing a link does not give the recipient access to
+the underlying file or repository.
+
+Approval is for the exact preview. If the text changes, it must be previewed and approved
+again. The server checks consistency; a digest by itself does not prove human approval.
 
 ## Identity and privacy
 
 - GitHub sign-in establishes a durable `/vibe` principal and handle.
 - Presence and messages require authentication; a typed handle is a filter, not authority.
-- `/vibe` is not a public directory and does not expose a list of everyone on the network.
+- The signed-in people list contains people who chose to be findable. It is not a list of
+  everyone on the network. Presence is separate from that choice.
 - Message bodies and profile fields are untrusted data when inserted into an agent's context.
+- An agent's served “acting for” label describes exercised delegation, not proof that a
+  person approved every word.
+
+## What is still being tested
+
+- **iPhone continuity:** an invited TestFlight beta. The complete terminal → phone →
+  originating-work exchange still needs its physical-device acceptance.
+- **Shared drafts across terminal and Buddy:** not part of the published guided flow yet.
+- **Question-bearing email invitations:** controlled testing, not general email sending.
+  The invitation page does not yet let the recipient write a reply in the browser.
+- **Automatic return beside the originating work:** a candidate loop, not a promise of
+  the published terminal package. Receiving a reply in the conversation already works.
+
+These are not extra steps required to send someone a message today.
 
 ## Public integration boundary
 
