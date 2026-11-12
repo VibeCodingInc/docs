@@ -8,7 +8,7 @@ when a message arrives.
 
 | Tool | Job |
 | --- | --- |
-| `vibe_start` | Sign in, or see what is waiting: unread conversations and ones where the other person spoke last |
+| `vibe_start` | Sign in, or see what is waiting: unread conversations and ones where the other person spoke last. Also sets the line saying what you are working on |
 | `vibe_people` | Who can be reached: people in a session now, with their own line about what they are doing, and the people you already talk with |
 | `vibe_thread` | One conversation in full, with the id of every message. Opening it marks it read |
 | `vibe_prepare` | The agent's words to a person, previewed. Sends nothing |
@@ -27,6 +27,8 @@ npx slashvibe-mcp hook install|status|uninstall
 npx slashvibe-mcp trust @handle           # open a line
 npx slashvibe-mcp untrust @handle         # close it
 npx slashvibe-mcp lines                   # list open lines
+npx slashvibe-mcp quiet|unquiet           # stop or resume messages surfacing while you work
+npx slashvibe-mcp mute|unmute @handle     # one person
 ```
 
 No tool can open a line. Only the `trust` command, typed by you, does.

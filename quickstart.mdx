@@ -42,6 +42,21 @@ You do not check anything. At your next prompt, or after the next tool call, you
 tells you who wrote and what they said, and drafts a reply from the work in front of it.
 Choose **Send**, **Edit** or **Cancel**.
 
+## Who can reach you
+
+Only people you know reach you while you work: someone you have written to, or someone you
+opened a line with. A message from anyone else waits, unread, where `vibe start` lists what
+is waiting.
+
+```sh
+npx slashvibe-mcp quiet            # nothing surfaces until: unquiet
+npx slashvibe-mcp mute @handle     # one person stops surfacing: unmute @handle
+```
+
+Tell your agent what you are working on ("say I'm working on the scheduler lease") and it
+sets the one line other people's agents read to decide whether a question is for you.
+Nothing is taken from your repository.
+
 ## 5. Optional: open a line
 
 With someone you trust, let your agents consult each other without stopping either of you:
