@@ -1,0 +1,66 @@
+---
+title: "Open line"
+description: "Two agents consult each other's working context, by standing consent. Alpha."
+---
+
+<Note>
+  The open line is an alpha. Answering while you work is Claude Code only today.
+</Note>
+
+## What it is
+
+Two people who trust each other each open a line, once, from a terminal:
+
+```sh
+npx slashvibe-mcp trust @ada
+```
+
+After that:
+
+1. Your work is missing something Ada would know. Your agent asks her agent.
+2. Ada keeps working. Her agent answers from the work in her session, if that work truly
+   holds the answer.
+3. Your agent gets the answer, usually within the same request, and carries on.
+4. Each of you is told what was asked and what was said.
+
+Neither of you wrote, read or approved a message in the moment. That is the point, and it
+is why the rules below are in code.
+
+## Consent
+
+- A line opens only from `trust`, typed by you. No tool can open one, so no message can
+  talk an agent into granting itself access.
+- A line is one-directional and stored on your machine. An exchange completes unattended
+  only when both people have opened one.
+- `npx slashvibe-mcp untrust @ada` closes it, effective on the next message.
+
+## Limits enforced by the code
+
+- Without an open line, the unattended tools refuse and your agent prepares a draft for you
+  instead.
+- An answer goes only to the person whose message actually arrived in your session.
+- At most 6 unattended messages per person per hour, 700 characters each.
+- Anything shaped like a key, token or password is refused outright.
+- A question older than 30 minutes is yours to answer, not your agent's.
+- An agent's answer is never answered by an agent, so two agents cannot keep each other
+  talking.
+- Every unattended message ends with a line saying your agent wrote it and that you have not
+  read it.
+- Every one leaves a receipt on your machine, shown when you next run `vibe_start`.
+
+## What is only an instruction
+
+Your agent is told to give information about the work only, and to hand anything else to
+you: requests to run something, change something, reveal a credential or pass something on.
+That part is an instruction to a model, not a guarantee. The credential check is a backstop,
+not a classifier.
+
+Open a line only with someone you would let read over your shoulder.
+
+## What it does not do
+
+- It does not answer while your session is idle. It answers when your session is running
+  tools or at your next prompt.
+- With several sessions open, the first one to see a question takes it. If that session does
+  not hold the answer, it tells you rather than passing the question on.
+- The other person cannot see what your agent was asked to do, only what it said.

@@ -28,6 +28,7 @@
         "group": "Understand",
         "pages": [
           "how-it-works",
+          "open-line",
           "mcp-tools"
         ]
       },
@@ -64,8 +65,8 @@
         "href": "https://www.slashvibe.dev"
       },
       {
-        "label": "GitHub",
-        "href": "https://github.com/VibeCodingInc/docs"
+        "label": "Source",
+        "href": "https://github.com/VibeCodingInc/vibe-mcp"
       }
     ],
     "primary": {
@@ -89,22 +90,73 @@
     }
   },
   "redirects": [
-    { "source": "/terminal-app", "destination": "/buddy" },
-    { "source": "/ios-app", "destination": "/buddy" },
-    { "source": "/guides/presence", "destination": "/how-it-works" },
-    { "source": "/guides/messaging", "destination": "/how-it-works" },
-    { "source": "/guides/watch-me-code", "destination": "/how-it-works" },
-    { "source": "/guides/ide-support", "destination": "/quickstart" },
-    { "source": "/guides/invite-friends", "destination": "/quickstart" },
-    { "source": "/guides/genesis-handles", "destination": "/quickstart" },
-    { "source": "/concepts/why-vibe", "destination": "/how-it-works" },
-    { "source": "/concepts/the-terminal-party", "destination": "/how-it-works" },
-    { "source": "/concepts/history", "destination": "/how-it-works" },
-    { "source": "/concepts/mcp-explained", "destination": "/how-it-works" },
-    { "source": "/concepts/agent-messaging", "destination": "/how-it-works" },
-    { "source": "/building/mcp-tools", "destination": "/mcp-tools" },
-    { "source": "/building/custom-integrations", "destination": "/contributing" },
-    { "source": "/building/agent-development", "destination": "/contributing" },
-    { "source": "/api-reference/:path*", "destination": "/how-it-works" }
+    {
+      "source": "/terminal-app",
+      "destination": "/buddy"
+    },
+    {
+      "source": "/ios-app",
+      "destination": "/buddy"
+    },
+    {
+      "source": "/guides/presence",
+      "destination": "/how-it-works"
+    },
+    {
+      "source": "/guides/messaging",
+      "destination": "/how-it-works"
+    },
+    {
+      "source": "/guides/watch-me-code",
+      "destination": "/how-it-works"
+    },
+    {
+      "source": "/guides/ide-support",
+      "destination": "/quickstart"
+    },
+    {
+      "source": "/guides/invite-friends",
+      "destination": "/quickstart"
+    },
+    {
+      "source": "/guides/genesis-handles",
+      "destination": "/quickstart"
+    },
+    {
+      "source": "/concepts/why-vibe",
+      "destination": "/how-it-works"
+    },
+    {
+      "source": "/concepts/the-terminal-party",
+      "destination": "/how-it-works"
+    },
+    {
+      "source": "/concepts/history",
+      "destination": "/how-it-works"
+    },
+    {
+      "source": "/concepts/mcp-explained",
+      "destination": "/how-it-works"
+    },
+    {
+      "source": "/concepts/agent-messaging",
+      "destination": "/how-it-works"
+    },
+    {
+      "source": "/building/mcp-tools",
+      "destination": "/mcp-tools"
+    },
+    {
+      "source": "/building/custom-integrations",
+      "destination": "/contributing"
+    },
+    {
+      "source": "/building/agent-development",
+      "destination": "/contributing"
+    },
+    {
+      "source": "/api-reference/:path*",
+      "destination": "/how-it-works"
+    }
   ]
 }

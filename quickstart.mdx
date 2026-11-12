@@ -1,6 +1,6 @@
 ---
 title: "Quickstart"
-description: "Install /vibe and send one real message."
+description: "Install /vibe, send one real message, and open a line."
 ---
 
 ## 1. Install
@@ -11,80 +11,73 @@ Run this in a terminal:
 npx slashvibe-mcp
 ```
 
-The installer opens GitHub sign-in and configures Claude Code, Codex, and Cursor when they
-are present. Your GitHub username becomes your initial `/vibe` handle.
+The installer:
 
-## 2. Restart your coding host
+- opens GitHub sign-in (your GitHub username becomes your `/vibe` handle);
+- configures Claude Code, Codex and Cursor when they are present;
+- for Claude Code, installs two small hooks so messages reach you while you work. They
+  change only `~/.claude/settings.json`, and `npx slashvibe-mcp hook uninstall` removes
+  them.
 
-Restart Claude Code, Codex, or Cursor so it loads the new MCP server.
+## 2. Restart your coding session
 
-## 3. Send one real message
+Restart Claude Code, Codex or Cursor so it loads the new server.
 
-Inside the coding session, ask naturally or use the direct form:
+## 3. Bring one person
+
+`/vibe` takes two. Send the person you work with the same line, `npx slashvibe-mcp`, and
+then message them from your session:
 
 ```text
-vibe dm @handle <your question>
+message @their-handle: ship it?
 ```
 
-Start with someone you already know. `/vibe` intentionally has no public people directory.
+Or let your agent write it. In Claude Code, type `/vibe` and it finds the question or
+result in your session, picks who it is for, and shows you the exact message. Nothing sends
+until you choose **Send**.
 
-## Claude Code: show waiting messages at session start
+## 4. When they write back
+
+You do not check anything. At your next prompt, or after the next tool call, your agent
+tells you who wrote and what they said, and drafts a reply from the work in front of it.
+Choose **Send**, **Edit** or **Cancel**.
+
+## 5. Optional: open a line
+
+With someone you trust, let your agents consult each other without stopping either of you:
 
 ```sh
-npx slashvibe-mcp hook install
+npx slashvibe-mcp trust @their-handle
 ```
 
-Restart Claude Code after installing the hook. Waiting messages can then appear at the top
-of a later session.
-
-<Note>
-  The pilot hook is read-only. It does not mark a message delivered or read, so the same
-  waiting message may appear again.
-</Note>
+It works both ways only when they open one with you too. See [Open line](/open-line) for
+what that allows and what it never does.
 
 ## Check the setup
 
-For Claude Code, inspect the configured server:
-
 ```sh
-claude mcp get vibe
+claude mcp get vibe                # should resolve to npx -y slashvibe-mcp@latest
+npx slashvibe-mcp hook status      # both hooks installed?
+npx slashvibe-mcp lines            # who you have an open line with
 ```
 
-The command should resolve to `npx -y slashvibe-mcp@latest`.
+Inside a session, ask "show me who's on /vibe". Signed-out, offline and empty states say so;
+they never invent presence or delivery.
 
-If you installed the optional hook, check it separately:
+## Upgrading from 0.8
 
-```sh
-npx slashvibe-mcp hook status
-```
+0.9.0 replaced the tool surface. If your coding agent still offers `vibe_who`, `vibe_inbox`
+or `vibe_dm`, it is running an older package:
 
-Inside the coding host, ask `/vibe` who is around or check your inbox. Signed-out, offline,
-and empty states should say so; they should not invent presence or delivery.
+1. Run `claude mcp get vibe` from the project where you use `/vibe`. If it names a pinned
+   version, run the exact `claude mcp remove` command Claude prints, for each scope it
+   reports, until `vibe` is missing.
+2. Run `npx slashvibe-mcp`, then `npx slashvibe-mcp hook install`.
+3. Restart Claude Code.
 
-## Returning from an older Claude Code install
-
-Older installs can leave `vibe` pinned to an earlier package. The installer currently keeps
-an existing MCP entry instead of replacing it, so check from the project directory where
-you plan to use `/vibe`:
-
-```sh
-claude mcp get vibe
-```
-
-If it names a pinned version, run the exact scope-specific `claude mcp remove` command that
-Claude prints. Check again because `vibe` can exist in more than one scope. Remove only the
-named `vibe` entry until `claude mcp get vibe` reports that it is missing, then run:
-
-```sh
-npx slashvibe-mcp
-claude mcp get vibe
-```
-
-Confirm that the new entry uses `slashvibe-mcp@latest`, then restart Claude Code. A stale
-project-local entry can override a current user entry, so trust the scope reported by
-`claude mcp get vibe` rather than editing configuration JSON by hand.
+A stale project-local entry can override a current user entry, so trust the scope that
+`claude mcp get vibe` reports rather than editing configuration by hand.
 
 ## Need the Mac companion?
 
-Vibe Buddy is optional. Install it after terminal messaging works if you want a quiet,
-persistent view of people, messages, and local coding sessions. See [Vibe Buddy](/buddy).
+Vibe Buddy is optional. See [Vibe Buddy](/buddy).
