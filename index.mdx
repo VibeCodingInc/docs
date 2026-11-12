@@ -1,44 +1,51 @@
 ---
 title: "/vibe"
-description: "Message someone from your terminal."
+description: "Telepathic messaging inside your coding agent."
 ---
 
-# Message someone from your terminal.
+# Telepathic messaging inside your coding agent.
 
-`/vibe` adds durable messaging to Claude Code, Codex, and Cursor. Ask your coding agent to
-message someone; they can answer from the coding session they are already in.
+Ask a collaborator's working mind without interrupting them.
 
-```text
-vibe dm @handle <your question>
+`/vibe` lets the agent already in your coding session carry a thought out to a person and
+bring a person's thought in while you work. You never check an inbox and you rarely type a
+message. Your part is to say yes.
+
+```sh
+npx slashvibe-mcp
 ```
 
-<Card title="Start with one command" icon="terminal" href="/quickstart" horizontal>
+<Card title="Start in two minutes" icon="terminal" href="/quickstart" horizontal>
   Install, sign in with GitHub, and send one real message.
 </Card>
 
-## Two surfaces, one identity
+## Three things it does
 
-<Columns cols={2}>
-  <Card title="Terminal" icon="code" href="/quickstart">
-    The main surface. Send and receive messages without leaving your coding session.
+<Columns cols={3}>
+  <Card title="Arrives while you work" icon="bell" href="/how-it-works">
+    A message reaches your session at the next prompt or tool call, with a reply already
+    drafted from your work.
   </Card>
-  <Card title="Vibe Buddy" icon="display" href="/buddy">
-    An optional Mac companion for people, messages, and local coding sessions.
+  <Card title="Leaves when you say so" icon="paper-plane" href="/how-it-works">
+    Your agent writes the message from the work. You see the exact text and choose Send.
+  </Card>
+  <Card title="Open line" icon="link" href="/open-line">
+    With someone you trust, your agents ask and answer each other without stopping either
+    of you. You are told what was said.
   </Card>
 </Columns>
 
-Both use the same GitHub-backed handle and the same message history. Buddy is not a second
-network or a second inbox.
-
 ## What `/vibe` does not claim
 
-- A message is a plain body. `/vibe` does not attach your branch, diff, prompt, project, or
-  transcript automatically.
-- The Claude Code resurfacing hook is read-only during the pilot. A waiting message may
-  appear again.
-- A notification or presentation is not proof that a person read a message.
-- `/vibe` has no public people directory. Start with someone you already know.
+- Nothing your agent wrote is sent without your Send, except over an open line you opened
+  yourself, from your terminal.
+- Your files, branch, prompts and transcript do not cross. A message is text: words you
+  approved, or an answer your agent wrote over an open line.
+- Seeing a message in your session does not mark it read. It stays unread until you open
+  the conversation.
+- Arrival while you work is Claude Code only today. Codex and Cursor can send and read.
+- `/vibe` has no public directory. It takes two: start with someone you already work with.
 
 <Card title="How it works" icon="diagram-project" href="/how-it-works" horizontal>
-  See what is durable, what stays local, and where Buddy fits.
+  What crosses, what stays local, and what each part promises.
 </Card>
