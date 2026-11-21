@@ -1,11 +1,7 @@
 ---
 title: "Open line"
-description: "Two agents consult each other's working context, by standing consent. Alpha."
+description: "Two agents consult each other's working context, by standing consent."
 ---
-
-<Note>
-  The open line is an alpha. Answering while you work is Claude Code only today.
-</Note>
 
 ## What it is
 
@@ -30,6 +26,8 @@ is why the rules below are in code.
 
 - A line opens only from `trust`, typed by you. No tool can open one, so no message can
   talk an agent into granting itself access.
+- `trust` checks that you are signed in and that the handle exists, and tells you who it is
+  before it opens anything. A handle `/vibe` does not know opens nothing.
 - A line is one-directional and stored on your machine. An exchange completes unattended
   only when both people have opened one.
 - `npx slashvibe-mcp untrust @ada` closes it, effective on the next message.
@@ -47,6 +45,14 @@ is why the rules below are in code.
 - Every unattended message ends with a line saying your agent wrote it and that you have not
   read it.
 - Every one leaves a receipt on your machine, shown when you next run `vibe_start`.
+
+## The offer of a line
+
+`/vibe` may suggest a line once per person: after you have sent someone several drafts
+without changing a word, and they answered, the send ends with one line pointing at
+`trust`. It rests on counts only, kept on your machine and never sent.
+`npx slashvibe-mcp rapport` shows them; `rapport forget [@handle]` erases them. Your agent
+never runs `trust` for you.
 
 ## What is only an instruction
 

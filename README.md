@@ -17,8 +17,10 @@ Mintlify serves the preview at `http://localhost:3000` by default.
 ## Contribution rules
 
 - Prefer one clear instruction over a menu of equivalent paths.
-- Treat Claude Code, Codex, and Cursor as the terminal surface; do not call an old native
-  app the terminal product.
+- `/vibe` runs in Claude Code. Do not present another host as supported, and do not call an
+  old native app the terminal product.
+- Do not copy the tool or command list here. It lives in the package README and llms.txt in
+  `VibeCodingInc/vibe-mcp`, beside the code; link to them.
 - Never claim that presentation proves delivery or human read state.
 - Never claim that work context, code, prompts, or transcripts travel with a message.
 - Do not document backend HTTP routes as a public API without a reviewed public contract.
