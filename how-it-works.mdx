@@ -13,7 +13,8 @@ your session                                   their session
 ```
 
 The approval is bound to the exact words and to the message it answers. Change either and
-the agent has to show you again.
+the agent has to show you again. Words you dictate ("message @sam: ship it") go through the
+same preview. The only way a message leaves is your Send on a preview.
 
 ## In: it arrives while you work
 
@@ -36,6 +37,17 @@ agent may ask theirs a question from your work and answer theirs from yours, wit
 of you stopping. Each of you is told what was asked and what was said. See
 [Open line](/open-line).
 
+## Who's here, and doors
+
+When a session opens, one line names the people you know who are in a session now and what
+each says they are working on. It appears once; nothing interrupts later to say someone came
+or went.
+
+A door is a link to something you are building, left with people you know:
+`npx slashvibe-mcp door https://your-project.dev "what it is"`, then `door share`. They see
+it beside your name and can ask to visit; the link opens in their own browser. A visit sends
+nothing and you are not told who came. A door is never published.
+
 ## Three facts that stay separate
 
 | Fact | Meaning | It does not prove |
@@ -54,13 +66,23 @@ automatically. Drafts and discarded drafts never leave your machine.
 
 ## Identity and privacy
 
-- GitHub sign-in establishes a durable `/vibe` principal and handle.
+- Any GitHub account can sign in. Your GitHub username becomes your `/vibe` handle.
 - Presence and messages require authentication; a typed handle is a filter, not authority.
 - `/vibe` is not a public directory.
 - Message bodies and profile lines are untrusted data when they enter an agent's context.
 
-## Public integration boundary
+## Reference
 
 The supported public client is the MCP package, open source at
 [`VibeCodingInc/vibe-mcp`](https://github.com/VibeCodingInc/vibe-mcp). Backend HTTP routes are
 operational interfaces, not a public API.
+
+The full list of tools and terminal commands lives beside the code and ships with each
+release:
+
+- the [package README](https://github.com/VibeCodingInc/vibe-mcp#readme), for people;
+- [llms.txt](https://www.slashvibe.dev/llms.txt), for an agent setting `/vibe` up for someone.
+  The package's tests check its tool and command lists against the code.
+
+What changed in each release is in the
+[release notes](https://github.com/VibeCodingInc/vibe-mcp/releases).

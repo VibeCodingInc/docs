@@ -7,12 +7,12 @@ description: "Telepathic messaging inside your coding agent."
 
 Ask a collaborator's working mind without interrupting them.
 
-`/vibe` lets the agent already in your coding session carry a thought out to a person and
-bring a person's thought in while you work. You never check an inbox and you rarely type a
-message. Your part is to say yes.
+`/vibe` lets the agent already in your Claude Code session carry a thought out to a person
+and bring a person's thought in while you work. You never check an inbox and you rarely type
+a message. Your part is to say yes.
 
 ```sh
-npx slashvibe-mcp
+npx slashvibe-mcp setup
 ```
 
 <Card title="Start in two minutes" icon="terminal" href="/quickstart" horizontal>
@@ -23,8 +23,8 @@ npx slashvibe-mcp
 
 <Columns cols={3}>
   <Card title="Arrives while you work" icon="bell" href="/how-it-works">
-    A message reaches your session at the next prompt or tool call, with a reply already
-    drafted from your work.
+    A message from someone you know reaches your session at the next prompt or tool call,
+    with a reply already drafted from your work.
   </Card>
   <Card title="Leaves when you say so" icon="paper-plane" href="/how-it-works">
     Your agent writes the message from the work. You see the exact text and choose Send.
@@ -37,13 +37,13 @@ npx slashvibe-mcp
 
 ## What `/vibe` does not claim
 
-- Nothing your agent wrote is sent without your Send, except over an open line you opened
-  yourself, from your terminal.
+- Nothing leaves without your Send, not even words you dictated. The one exception is an
+  open line you opened yourself, from your terminal.
 - Your files, branch, prompts and transcript do not cross. A message is text: words you
   approved, or an answer your agent wrote over an open line.
 - Seeing a message in your session does not mark it read. It stays unread until you open
   the conversation.
-- Arrival while you work is Claude Code only today. Codex and Cursor can send and read.
+- `/vibe` runs in Claude Code. Setup configures no other host.
 - A stranger cannot interrupt you. Only people you have written to, or opened a line with,
   reach you while you work.
 - `/vibe` has no public directory. It takes two: start with someone you already work with.

@@ -28,8 +28,7 @@
         "group": "Understand",
         "pages": [
           "how-it-works",
-          "open-line",
-          "mcp-tools"
+          "open-line"
         ]
       },
       {
@@ -67,6 +66,10 @@
       {
         "label": "Source",
         "href": "https://github.com/VibeCodingInc/vibe-mcp"
+      },
+      {
+        "label": "Release notes",
+        "href": "https://github.com/VibeCodingInc/vibe-mcp/releases"
       }
     ],
     "primary": {
@@ -144,7 +147,11 @@
     },
     {
       "source": "/building/mcp-tools",
-      "destination": "/mcp-tools"
+      "destination": "/how-it-works"
+    },
+    {
+      "source": "/mcp-tools",
+      "destination": "/how-it-works"
     },
     {
       "source": "/building/custom-integrations",
